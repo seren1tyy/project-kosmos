@@ -1,0 +1,286 @@
+[gd_scene format=3 uid="uid://dhdaetk2w38vl"]
+
+[ext_resource type="Script" uid="uid://b24imi2ppgi0p" path="res://scenes/game_lobby/GameLobby.gd" id="1_wyv3p"]
+[ext_resource type="Script" uid="uid://cniuls6l34sco" path="res://scenes/game_lobby/ShipDisplay.gd" id="2_d8ih7"]
+[ext_resource type="Script" uid="uid://16nc318kjek1" path="res://scenes/game_lobby/HUD.gd" id="3_d8ih7"]
+[ext_resource type="Script" uid="uid://br1uyaylejkhv" path="res://scenes/game_lobby/OrbitCamera.gd" id="3_mciba"]
+[ext_resource type="Script" uid="uid://bqqx5babtjsa0" path="res://scenes/game_lobby/NeocomHUD.gd" id="5_d8ih7"]
+
+[sub_resource type="Environment" id="Environment_nttbn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8ih7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.20871028, 0.2087101, 0.20871013, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.08468992, 0.08468994, 0.08468986, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+
+[node name="GameLobby" type="Node3D" unique_id=1006285889]
+script = ExtResource("1_wyv3p")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=48273549]
+environment = SubResource("Environment_nttbn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1078868441]
+transform = Transform3D(0.8660254, 0.35355338, -0.35355338, 0, 0.70710677, 0.70710677, 0.5, -0.6123724, 0.6123724, 0, 0, 0)
+light_energy = 0.5
+
+[node name="ShipModel" type="Node3D" parent="." unique_id=2115404822]
+script = ExtResource("2_d8ih7")
+
+[node name="OrbitPivot" type="Node3D" parent="." unique_id=1408160243]
+script = ExtResource("3_mciba")
+
+[node name="Camera3D" type="Camera3D" parent="OrbitPivot" unique_id=463971906]
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1465150693]
+
+[node name="HUD" type="Control" parent="HUDLayer" unique_id=908373823]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_d8ih7")
+
+[node name="TopBar" type="HBoxContainer" parent="HUDLayer/HUD" unique_id=985015301]
+layout_mode = 0
+offset_left = 45.0
+offset_right = 304.0
+offset_bottom = 173.0
+
+[node name="ShipName" type="Label" parent="HUDLayer/HUD/TopBar" unique_id=709140061]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="HUDLayer/HUD/TopBar" unique_id=2134599516]
+layout_mode = 2
+
+[node name="CharName" type="Label" parent="HUDLayer/HUD/TopBar" unique_id=198148781]
+layout_mode = 2
+
+[node name="LocationLbl" type="Label" parent="HUDLayer/HUD/TopBar" unique_id=946988107]
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="HUDLayer/HUD" unique_id=1037041497]
+layout_mode = 0
+offset_top = 602.0
+offset_right = 197.0
+offset_bottom = 647.0
+
+[node name="UndockBtn" type="Button" parent="HUDLayer/HUD/BottomBar" unique_id=354656873]
+layout_mode = 2
+text = "Undock"
+
+[node name="LogOutBtn" type="Button" parent="HUDLayer/HUD/BottomBar" unique_id=904338451]
+layout_mode = 2
+text = "Logout"
+
+[node name="StatusLbl" type="Label" parent="HUDLayer/HUD" unique_id=1480626673]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NeocomPanel" type="Control" parent="HUDLayer/HUD" unique_id=846719482]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_d8ih7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/HUD/NeocomPanel" unique_id=993479458]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 171.0
+
+[node name="CharBtn" type="Button" parent="HUDLayer/HUD/NeocomPanel/VBoxContainer" unique_id=894543281]
+layout_mode = 2
+text = "👤"
+
+[node name="WalletBtn" type="Button" parent="HUDLayer/HUD/NeocomPanel/VBoxContainer" unique_id=595541266]
+layout_mode = 2
+text = "💰"
+
+[node name="InvBtn" type="Button" parent="HUDLayer/HUD/NeocomPanel/VBoxContainer" unique_id=451909152]
+layout_mode = 2
+text = "📦"
+
+[node name="MapBtn" type="Button" parent="HUDLayer/HUD/NeocomPanel/VBoxContainer" unique_id=482524699]
+layout_mode = 2
+text = "🗺️"
+
+[node name="SettingsBtn" type="Button" parent="HUDLayer/HUD/NeocomPanel/VBoxContainer" unique_id=272172558]
+layout_mode = 2
+text = "⚙️"
+
+[node name="InventoryWindow" type="Panel" parent="HUDLayer/HUD/NeocomPanel" unique_id=978494681]
+custom_minimum_size = Vector2(380, 320)
+layout_mode = 1
+offset_left = 152.0
+offset_top = 155.0
+offset_right = 602.0
+offset_bottom = 505.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8ih7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow" unique_id=1318817698]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="HBoxContainer" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer" unique_id=2043095360]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Header" unique_id=1554440967]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Inventory"
+
+[node name="CloseBtn" type="Button" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Header" unique_id=875389074]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+text = "X"
+
+[node name="Body" type="HBoxContainer" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer" unique_id=700198981]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="UnifiedInventory" type="PanelContainer" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Body" unique_id=1211735761]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Body/UnifiedInventory" unique_id=1444056047]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Body/UnifiedInventory/VBoxContainer" unique_id=48896514]
+layout_mode = 2
+text = "Inventory Tree"
+
+[node name="VSeparator" type="VSeparator" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Body/UnifiedInventory/VBoxContainer" unique_id=881999835]
+layout_mode = 2
+
+[node name="Label2" type="Tree" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Body/UnifiedInventory/VBoxContainer" unique_id=990309273]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Body" unique_id=1532077057]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer/Body" unique_id=250848839]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+allow_reselect = true
+max_columns = 3
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(48, 48)
+
+[node name="Footer" type="Label" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/VBoxContainer" unique_id=607207408]
+layout_mode = 2
+size_flags_vertical = 8
+text = "0 items"
+horizontal_alignment = 2
+
+[node name="ResizeHandles" type="Control" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow" unique_id=945703970]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="EdgeN" type="ColorRect" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/ResizeHandles" unique_id=1175714278]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0)
+
+[node name="EdgeS" type="ColorRect" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/ResizeHandles" unique_id=48198645]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 1, 1, 0)
+
+[node name="EdgeW" type="ColorRect" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/ResizeHandles" unique_id=639168183]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="EdgeE" type="ColorRect" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/ResizeHandles" unique_id=44994592]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="CornerNW" type="ColorRect" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/ResizeHandles" unique_id=1686756007]
+layout_mode = 1
+offset_right = 5.0
+offset_bottom = 5.0
+color = Color(1, 1, 1, 0)
+
+[node name="CornerNE" type="ColorRect" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/ResizeHandles" unique_id=972829147]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -5.0
+offset_bottom = 5.0
+grow_horizontal = 0
+color = Color(1, 1, 1, 0)
+
+[node name="CornerSW" type="ColorRect" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/ResizeHandles" unique_id=5993628]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_right = 5.0
+grow_vertical = 0
+color = Color(1, 1, 1, 0)
+
+[node name="CornerSE" type="ColorRect" parent="HUDLayer/HUD/NeocomPanel/InventoryWindow/ResizeHandles" unique_id=1162397304]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(1, 1, 1, 0)

@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bgqdvd5n14t8f"]
+
+[ext_resource type="Script" uid="uid://brphgbdald6fh" path="res://scenes/character_select/CharacterSelect.gd" id="1_hdj10"]
+
+[node name="CharacterSelect" type="Control" unique_id=978172570]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hdj10")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=675862463]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1255433393]
+layout_mode = 2
+theme_override_constants/separation = 673
+
+[node name="LeftPanel" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=639686323]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/LeftPanel" unique_id=410071265]
+layout_mode = 2
+
+[node name="CharInfo" type="PanelContainer" parent="MarginContainer/HBoxContainer/LeftPanel" unique_id=1471245208]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftPanel/CharInfo" unique_id=326857667]
+layout_mode = 2
+
+[node name="SelectedName" type="Label" parent="MarginContainer/HBoxContainer/LeftPanel/CharInfo/VBoxContainer" unique_id=359037729]
+layout_mode = 2
+text = "No character selected"
+
+[node name="SelectedRace" type="Label" parent="MarginContainer/HBoxContainer/LeftPanel/CharInfo/VBoxContainer" unique_id=1627925777]
+layout_mode = 2
+
+[node name="SelectedBloodline" type="Label" parent="MarginContainer/HBoxContainer/LeftPanel/CharInfo/VBoxContainer" unique_id=1491625181]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/LeftPanel" unique_id=1860940656]
+layout_mode = 2
+
+[node name="EnterBtn" type="Button" parent="MarginContainer/HBoxContainer/LeftPanel" unique_id=1713058443]
+layout_mode = 2
+text = "Enter Game"
+
+[node name="LogoutBtn" type="Button" parent="MarginContainer/HBoxContainer/LeftPanel" unique_id=1503657232]
+layout_mode = 2
+text = "Lot Out"
+
+[node name="RightPanel" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=274638550]
+layout_mode = 2
+
+[node name="ListHeader" type="Label" parent="MarginContainer/HBoxContainer/RightPanel" unique_id=167507435]
+layout_mode = 2
+text = "Your characters"
+
+[node name="CharList" type="VBoxContainer" parent="MarginContainer/HBoxContainer/RightPanel" unique_id=1853181746]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/RightPanel" unique_id=423862117]
+layout_mode = 2
+
+[node name="Pager" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RightPanel" unique_id=844254926]
+layout_mode = 2
+
+[node name="PrevBtn" type="Button" parent="MarginContainer/HBoxContainer/RightPanel/Pager" unique_id=1270633577]
+layout_mode = 2
+text = "<"
+
+[node name="PageLabel" type="Label" parent="MarginContainer/HBoxContainer/RightPanel/Pager" unique_id=917927680]
+layout_mode = 2
+text = "Page 1"
+
+[node name="NextBtn" type="Button" parent="MarginContainer/HBoxContainer/RightPanel/Pager" unique_id=1567694920]
+layout_mode = 2
+text = ">"
+
+[node name="CreateBtn" type="Button" parent="MarginContainer/HBoxContainer/RightPanel/Pager" unique_id=1940632812]
+layout_mode = 2
+text = "New Character"

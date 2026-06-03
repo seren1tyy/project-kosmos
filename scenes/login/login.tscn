@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bgbj2edjdh42u"]
+
+[ext_resource type="Script" uid="uid://bw8fab38sxw7h" path="res://scenes/login/login.gd" id="1_cau7c"]
+
+[node name="Login" type="Control" unique_id=30581401]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cau7c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1461931155]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 336.0
+offset_right = 723.0
+offset_bottom = 561.0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=587764515]
+layout_mode = 2
+text = "Project KOSMOS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoginLine" type="LineEdit" parent="VBoxContainer" unique_id=1603560193]
+layout_mode = 2
+placeholder_text = "Login"
+alignment = 1
+
+[node name="PasswordLine" type="LineEdit" parent="VBoxContainer" unique_id=672347273]
+layout_mode = 2
+placeholder_text = "Password"
+alignment = 1
+
+[node name="ConnectBtn" type="Button" parent="VBoxContainer" unique_id=1730006068]
+layout_mode = 2
+disabled = true
+text = "Connect"
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer" unique_id=262732811]
+layout_mode = 2
